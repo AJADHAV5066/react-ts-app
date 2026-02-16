@@ -34,12 +34,17 @@ const Timer: React.FC = () => {
         clearInterval(intervalId);
         setIntervalId(null);
       }
+
+      const timerDisplay = document.getElementById('timer-display');
+      if (timerDisplay) {
+        timerDisplay.style.color = 'green';
+      }
     }
   }, [time, intervalId]);
 
   return (
     <div className={styles.timer}>
-      <h2 className={styles.display}>Timer: {time}</h2>
+      <h2 id="timer-display" className={styles.display}>Timer: {time}</h2>
       <button onClick={start}>Start</button>
       <button onClick={stop}>Stop</button>
       <button onClick={reset}>Reset</button>
